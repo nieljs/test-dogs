@@ -12,12 +12,15 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
 
 <body>
-    <span id="dogfull"></span>
     <script>
         fetch("data/dogs.json")
             .then(r => r.json())
