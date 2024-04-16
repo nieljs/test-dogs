@@ -25,7 +25,7 @@
         fetch("data/dogs.json")
             .then(r => r.json())
             .then(dogs => {
-                let img_url = dogs[0]["image"]["url"]
+                let img_url = dogs[parseInt(Math.random() * dogs.length)]["image"]["url"]
                 document.body.style.backgroundImage = `url("${img_url}")`
             })
             .catch(e => console.log(e.message))
