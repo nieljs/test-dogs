@@ -5,6 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Dogs</title>
+    <style>
+        #dogfull {
+            width: 100%;
+            min-width: 100%;
+            max-width: max-content;
+            height: max-content;
+            min-height: max-content;
+            max-height: max-content;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,8 +26,8 @@
                 let img_url = dogs[0]["image"]["url"]
                 let img = document.createElement("img")
                 img.src = img_url
-                img.width = "100%"
-                img.height = "100%"
+                img.width = dogs[0]["image"]["width"]
+                img.height = dogs[0]["image"]["height"]
                 document.querySelector("#dogfull").insertAdjacentElement("afterbegin", img)
             })
             .catch(e => console.log(e.message))
