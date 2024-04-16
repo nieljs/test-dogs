@@ -6,27 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Dogs 2</title>
     <style>
-        body {
+        body,
+        html {
             margin: 0;
             padding: 0;
-            background-size: cover;
-            background-position: top;
-            background-repeat: no-repeat;
-            height: 100dvh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            height: 100%;
+        }
+
+        #container {
+            position: relative;
+        }
+
+        .image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        #content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            /* Adapte o preenchimento conforme necessário */
+            box-sizing: border-box;
         }
     </style>
 </head>
 
 <body>
+    <div id="container">
+        <div id="image"></div>
+        <div id="content">
+            <h1>THIS IS A DOG</h1>
+            <p>This dog is a dog very very very dog.</p>
+            <p>Other dogs aren't like this specific dog.</p>
+        </div>
+    </div>
     <script>
         fetch("data/dogs.json")
             .then(r => r.json())
             .then(dogs => {
                 let img_url = dogs[parseInt(Math.random() * dogs.length)]["image"]["url"]
-                document.body.style.backgroundImage = `url("${img_url}")`
+                let img_tag = document.createElement("img")
+                img_tag.src = img_url
+                img_tag.classList.add("image")
+                document.querySelector("#image").appendChild(img_tag)
             })
             .catch(e => console.log(e.message))
     </script>
