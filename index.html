@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Dogs</title>
+    <title>The Dogs 2</title>
     <style>
         body {
             margin: 0;
@@ -23,7 +23,7 @@
             .then(r => r.json())
             .then(dogs => {
                 let img_url = dogs[0]["image"]["url"]
-                document.body.backgroundImage = `url("${img_url}")`
+                document.body.style.backgroundImage = `url("${img_url}")`
             })
             .catch(e => console.log(e.message))
     </script>
